@@ -1,6 +1,8 @@
 import express from 'express'
-import { clerkwebhooks } from '../controllers/userController.js'
-const userRoute=express.Router()
-userRoute.post('/webhooks',clerkwebhooks)
+import { clerkwebhooks, userCredits } from '../controllers/userController.js'
+import authUser from '../middlewares/auth.js'
+const userRouter=express.Router()
+userRouter.post('/webhooks',clerkwebhooks)
+userRouter.post('/credits',authUser,userCredits)
 
-export default userRoute
+export default userRouter
