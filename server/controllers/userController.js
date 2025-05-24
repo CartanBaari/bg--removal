@@ -13,7 +13,7 @@ try{
     })
     const { data,type} = req.body
     switch (type) {
-        case "user.created":{
+        case "user.created": {
             const userData={
                 clerkId:data.id,
                 email:data.email_addresses[0].email_address,
@@ -23,10 +23,10 @@ try{
 
             }
             await userModel.create(userData)
-            res.json({})
+            res.json({ success:true,message:"Xogtii waa la xareeyy"})
             break;
         }
-        case "user.updated":{
+        case "user.updated": {
              const userData={
                 email:data.email_addresses[0].email_address,
                 firstName:data.first_name,
@@ -36,13 +36,13 @@ try{
             }
 
             await userModel.findOneAndUpdate({clerkId:data.id},userData)
-            res.json({})
+            res.json({success:true,message:"xogtii waa la update gareeyay"})
             break;
         }
         case "user.deleted":{
 
             await userModel.findOneAndDelete({clerkId:data.id})
-            res.json({})
+            res.json({success:true,message:"xogtii waa la delete gareeyay"})
             break;
         }
             
@@ -52,7 +52,7 @@ try{
 
 }catch(error){
     console.log(error.message)
-    res.json({success:false,message:error.message})
+    res.json({success:false,message:"xog lama qaadin wali😒"})
 }
 
 }
@@ -67,4 +67,8 @@ const userCredits=async(req,res)=>{
     res.json({success:false,message:error.message}) 
     }
 }
-export {clerkwebhooks ,userCredits}
+export{
+clerkwebhooks,
+userCredits
+}
+ 
