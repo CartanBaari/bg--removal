@@ -26,7 +26,7 @@ const AppContextProvider = (props) => {
       }
     } catch (error) {
       console.log(error);
-      toast.error(error.message);
+      toast.error("user oooo");
     }
   };
   const RemovalBG = async (image) => {

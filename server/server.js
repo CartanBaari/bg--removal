@@ -8,7 +8,7 @@ const PORT= process.env.PORT || 4000;
 const app = express();
 await connectDB()
 app.use(express.json())
-app.use(cors())
+app.use(cors());
 app.get('/' ,(req,res)=>res.send("Api Working--"))
 app.use('/api/user',userRouter)
 app.use('/api/image/webhooks',imageRouter)
